@@ -1,0 +1,119 @@
+ARC Aula - 19_03
+
+1.) Resumo mapa VK
+
+   cd 00  01  11  10
+  \   
+ab
+
+00     1   1       1
+
+01         1       1 
+
+11     1   1    1 
+
+10     1           1
+
+SoP(0,1,2,5,6,8,10,12,13,15)
+
+1.)Organizar grupos dependentes das quantidades de bits iguais a 1
+
+       _ m
+      |
+0bits |  0  a'b'c'd'
+      |_ 
+
+
+       _ 
+      |  1  a'b'c'd
+1bits |  2  a'b'c'd'
+      |_ 8  a b'c'd'
+
+
+       _ 
+      |  5  a'b c'd
+2bits |  6  a'b'c'd'
+      | 10  a b'c d'
+      |_12  a b c'd'
+
+       _ 
+      |
+3bits | 13  a b c'd
+      |_
+
+
+       _ 
+      |
+4bits | 15  a b c d
+      |_
+
+
+2.) Formar pares entre grupos 
+
+
+( 0 , 1 ) a'b'c'_
+( 0 , 2 ) a'b'_ d'
+( 0 , 8 ) _ b'c'd'
+
+( 1 , 5 ) a'_ c'd'
+( 2 , 6 ) a'_ c d'
+( 2 ,10 )   b'_ d'
+( 8 ,10 ) a b'_ d'
+( 8 ,12 ) a _ c'd'
+
+( 5 ,13 ) _ b c'd
+( 12,13 ) a b c'_
+
+( 13,15 ) a b _ d
+
+
+3.)Formar pares de pares
+
+4.)Rotular os grupos
+
+5.) Montar Tabela
+
+6.)Contar termos por colunas
+
+7.)Identificar os itens essenciais
+
+8.)Separar os grupos com os itens essenciais
+SoP = (Gc+Gg+Gh)+...
+
+9.) Remontar a tabela sem os essenciais
+
+10.)Separar os grupos escolhidos
+
+SoP =  Gc   a'_ c d'
+    +  Gg   a b _ d'
+    +  Gh   _ b'_ d'
+    +  Gb   a'_ c'd
+    +  Gd   a _ c'd'
+
+
+11.)Verificar as escolhar no mapa VK
+
+Alternativas:
+
+   cd 00    01    11    10
+  \   
+ab
+            _
+00     1   |1|         |1|
+
+01         |1|         |1| 
+	    _
+11     1   [1    1 
+            -
+10     1           1
+	
+
+
+
+
+
+
+
+
+
+

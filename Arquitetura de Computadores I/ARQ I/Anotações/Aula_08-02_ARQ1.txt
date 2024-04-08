@@ -1,0 +1,25 @@
+Aula_08-02_ARQ1
+
+1.) Representações de Dados
+
+Inteiros com sinal
+
++
+0     1101(+13)
+1     1101(-13)
+|     |
+sinal amplitude
+
+Representação de Reais:
+
+\   |   /
+ \  |  /
+  \ | /
+   \|/
+----+----
+   /|\
+  / | \
+ /  |  \
+/   |   \ 
+   
+

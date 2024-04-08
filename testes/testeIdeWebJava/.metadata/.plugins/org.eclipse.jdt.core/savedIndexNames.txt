@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+S:\Documents\CC-03\testeIdeWebJava\.metadata\.plugins\org.eclipse.jdt.core
+1444573167.index
+1865797976.index
+4180157011.index

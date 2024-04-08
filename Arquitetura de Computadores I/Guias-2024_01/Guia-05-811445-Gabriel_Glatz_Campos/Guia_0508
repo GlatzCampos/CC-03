@@ -1,0 +1,77 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "S:\Documents\iverilog\lib\ivl\system.vpi";
+:vpi_module "S:\Documents\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "S:\Documents\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "S:\Documents\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "S:\Documents\iverilog\lib\ivl\va_math.vpi";
+S_000002167a66bd90 .scope module, "Guia_0508" "Guia_0508" 2 19;
+ .timescale 0 0;
+v000002167a583490_0 .var "a", 0 0;
+v000002167a583a30_0 .var "b", 0 0;
+v000002167a584110_0 .net "result", 0 0, L_000002167a584630;  1 drivers
+S_000002167a586610 .scope module, "uut" "fGuia_0508" 2 25, 2 6 0, S_000002167a66bd90;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "result";
+L_000002167a669930 .functor NOT 1, v000002167a583490_0, C4<0>, C4<0>, C4<0>;
+L_000002167a553160 .functor NOT 1, v000002167a583a30_0, C4<0>, C4<0>, C4<0>;
+L_000002167a584e20 .functor AND 1, L_000002167a669930, L_000002167a553160, C4<1>, C4<1>;
+L_000002167a66b740 .functor NOT 1, L_000002167a584e20, C4<0>, C4<0>, C4<0>;
+L_000002167a5867a0 .functor NOT 1, v000002167a583490_0, C4<0>, C4<0>, C4<0>;
+L_000002167a584780 .functor AND 1, L_000002167a5867a0, L_000002167a66b740, C4<1>, C4<1>;
+L_000002167a584550 .functor NOT 1, L_000002167a584780, C4<0>, C4<0>, C4<0>;
+L_000002167a5847f0 .functor NOT 1, v000002167a583a30_0, C4<0>, C4<0>, C4<0>;
+L_000002167a5846a0 .functor AND 1, L_000002167a5847f0, L_000002167a66b740, C4<1>, C4<1>;
+L_000002167a584710 .functor NOT 1, L_000002167a5846a0, C4<0>, C4<0>, C4<0>;
+L_000002167a5844e0 .functor AND 1, L_000002167a584550, L_000002167a584710, C4<1>, C4<1>;
+L_000002167a584630 .functor NOT 1, L_000002167a5844e0, C4<0>, C4<0>, C4<0>;
+v000002167a66bf20_0 .net *"_ivl_0", 0 0, L_000002167a669930;  1 drivers
+v000002167a553380_0 .net *"_ivl_10", 0 0, L_000002167a584780;  1 drivers
+v000002167a552ee0_0 .net *"_ivl_14", 0 0, L_000002167a5847f0;  1 drivers
+v000002167a669890_0 .net *"_ivl_16", 0 0, L_000002167a5846a0;  1 drivers
+v000002167a583cb0_0 .net *"_ivl_2", 0 0, L_000002167a553160;  1 drivers
+v000002167a583e90_0 .net *"_ivl_20", 0 0, L_000002167a5844e0;  1 drivers
+v000002167a584070_0 .net *"_ivl_4", 0 0, L_000002167a584e20;  1 drivers
+v000002167a583530_0 .net *"_ivl_8", 0 0, L_000002167a5867a0;  1 drivers
+v000002167a5835d0_0 .net "a", 0 0, v000002167a583490_0;  1 drivers
+v000002167a5841b0_0 .net "b", 0 0, v000002167a583a30_0;  1 drivers
+v000002167a583f30_0 .net "nand1", 0 0, L_000002167a66b740;  1 drivers
+v000002167a583850_0 .net "nand2", 0 0, L_000002167a584550;  1 drivers
+v000002167a583df0_0 .net "nand3", 0 0, L_000002167a584710;  1 drivers
+v000002167a584250_0 .net "result", 0 0, L_000002167a584630;  alias, 1 drivers
+    .scope S_000002167a66bd90;
+T_0 ;
+    %vpi_call 2 29 "$display", "Guia_0504 - Gabriel Glatz Campos - 811445" {0 0 0};
+    %vpi_call 2 30 "$monitor", "Resultado para a=%b, b=%b: %b", v000002167a583490_0, v000002167a583a30_0, v000002167a584110_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002167a583490_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002167a583a30_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002167a583490_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002167a583a30_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002167a583490_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002167a583a30_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002167a583490_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002167a583a30_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 48 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Guia_0508.v";

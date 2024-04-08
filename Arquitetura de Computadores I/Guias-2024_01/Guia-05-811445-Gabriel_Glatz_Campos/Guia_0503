@@ -1,0 +1,63 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "S:\Documents\iverilog\lib\ivl\system.vpi";
+:vpi_module "S:\Documents\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "S:\Documents\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "S:\Documents\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "S:\Documents\iverilog\lib\ivl\va_math.vpi";
+S_0000029bed0f6310 .scope module, "Guia_0503" "Guia_0503" 2 22;
+ .timescale 0 0;
+v0000029bed06a290_0 .var "a", 0 0;
+v0000029bed06a330_0 .var "b", 0 0;
+v0000029bed06a3d0_0 .net "result", 0 0, L_0000029bed06a4e0;  1 drivers
+S_0000029bed0f64a0 .scope module, "uut" "fGuia_0503" 2 28, 2 6 0, S_0000029bed0f6310;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "result";
+L_0000029bed0688e0 .functor NOT 1, v0000029bed06a290_0, C4<0>, C4<0>, C4<0>;
+L_0000029bed0c3160 .functor NOT 1, v0000029bed06a330_0, C4<0>, C4<0>, C4<0>;
+L_0000029bed0f4e20 .functor AND 1, L_0000029bed0688e0, L_0000029bed0c3160, C4<1>, C4<1>;
+L_0000029bed06a470 .functor NOT 1, L_0000029bed0f4e20, C4<0>, C4<0>, C4<0>;
+L_0000029bed06a4e0 .functor BUFZ 1, L_0000029bed06a470, C4<0>, C4<0>, C4<0>;
+v0000029bed0c3380_0 .net *"_ivl_2", 0 0, L_0000029bed0c3160;  1 drivers
+v0000029bed0c2ee0_0 .net *"_ivl_4", 0 0, L_0000029bed0f4e20;  1 drivers
+v0000029bed068840_0 .net "a", 0 0, v0000029bed06a290_0;  1 drivers
+v0000029bed0f6630_0 .net "b", 0 0, v0000029bed06a330_0;  1 drivers
+v0000029bed0f66d0_0 .net "nor_result", 0 0, L_0000029bed06a470;  1 drivers
+v0000029bed06a150_0 .net "not_a", 0 0, L_0000029bed0688e0;  1 drivers
+v0000029bed06a1f0_0 .net "result", 0 0, L_0000029bed06a4e0;  alias, 1 drivers
+    .scope S_0000029bed0f6310;
+T_0 ;
+    %vpi_call 2 32 "$display", "Guia_0503 - Gabriel Glatz Campos - 811445" {0 0 0};
+    %vpi_call 2 33 "$monitor", "Resultado para a=%b, b=%b: %b", v0000029bed06a290_0, v0000029bed06a330_0, v0000029bed06a3d0_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000029bed06a290_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000029bed06a330_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000029bed06a290_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000029bed06a330_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000029bed06a290_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000029bed06a330_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000029bed06a290_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000029bed06a330_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 51 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Guia_0503.v";

@@ -1,0 +1,69 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "S:\Documents\iverilog\lib\ivl\system.vpi";
+:vpi_module "S:\Documents\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "S:\Documents\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "S:\Documents\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "S:\Documents\iverilog\lib\ivl\va_math.vpi";
+S_0000020f98ce6610 .scope module, "Guia_0505" "Guia_0505" 2 18;
+ .timescale 0 0;
+v0000020f98d327a0_0 .var "a", 0 0;
+v0000020f98d322a0_0 .var "b", 0 0;
+v0000020f98d32700_0 .net "result", 0 0, L_0000020f98ce40b0;  1 drivers
+S_0000020f98ce67a0 .scope module, "uut" "fGuia_0505" 2 24, 2 6 0, S_0000020f98ce6610;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "result";
+L_0000020f98c9a5d0 .functor OR 1, v0000020f98d327a0_0, v0000020f98d322a0_0, C4<0>, C4<0>;
+L_0000020f98c9b9d0 .functor NOT 1, L_0000020f98c9a5d0, C4<0>, C4<0>, C4<0>;
+L_0000020f98c994f0 .functor OR 1, v0000020f98d327a0_0, L_0000020f98c9b9d0, C4<0>, C4<0>;
+L_0000020f98cb3160 .functor NOT 1, L_0000020f98c994f0, C4<0>, C4<0>, C4<0>;
+L_0000020f98ce4e20 .functor OR 1, v0000020f98d322a0_0, L_0000020f98c9b9d0, C4<0>, C4<0>;
+L_0000020f98ce4190 .functor NOT 1, L_0000020f98ce4e20, C4<0>, C4<0>, C4<0>;
+L_0000020f98ce43c0 .functor OR 1, L_0000020f98cb3160, L_0000020f98ce4190, C4<0>, C4<0>;
+L_0000020f98ce40b0 .functor NOT 1, L_0000020f98ce43c0, C4<0>, C4<0>, C4<0>;
+v0000020f98cb3380_0 .net *"_ivl_0", 0 0, L_0000020f98c9a5d0;  1 drivers
+v0000020f98cb2ee0_0 .net *"_ivl_12", 0 0, L_0000020f98ce43c0;  1 drivers
+v0000020f98c99450_0 .net *"_ivl_4", 0 0, L_0000020f98c994f0;  1 drivers
+v0000020f98c9b930_0 .net *"_ivl_8", 0 0, L_0000020f98ce4e20;  1 drivers
+v0000020f98c9a530_0 .net "a", 0 0, v0000020f98d327a0_0;  1 drivers
+v0000020f98ce6930_0 .net "b", 0 0, v0000020f98d322a0_0;  1 drivers
+v0000020f98ce69d0_0 .net "nor1", 0 0, L_0000020f98c9b9d0;  1 drivers
+v0000020f98cd50a0_0 .net "nor2", 0 0, L_0000020f98cb3160;  1 drivers
+v0000020f98d31b20_0 .net "nor3", 0 0, L_0000020f98ce4190;  1 drivers
+v0000020f98d32520_0 .net "result", 0 0, L_0000020f98ce40b0;  alias, 1 drivers
+    .scope S_0000020f98ce6610;
+T_0 ;
+    %vpi_call 2 28 "$display", "Guia_0504 - Gabriel Glatz Campos - 811445" {0 0 0};
+    %vpi_call 2 29 "$monitor", "Resultado para a=%b, b=%b: %b", v0000020f98d327a0_0, v0000020f98d322a0_0, v0000020f98d32700_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020f98d327a0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000020f98d322a0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000020f98d327a0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020f98d322a0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000020f98d327a0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000020f98d322a0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020f98d327a0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020f98d322a0_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 47 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Guia_0505.v";

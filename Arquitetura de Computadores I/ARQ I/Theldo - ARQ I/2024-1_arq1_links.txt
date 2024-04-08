@@ -1,0 +1,114 @@
+PUC-Minas
+Instituto de Ciências Exatas e Informática
+Curso de Ciência da Computação
+Arquitetura de Computadores I
+
+Links institucionais
+
+PUC
+
+https://www.pucminas.br
+
+SGA
+
+https://www.sistemas.pucminas.br/sgaaluno4/SilverStream/Pages/pgAln_LoginSSL.html
+
+Calendário
+
+https://www.pucminas.br/calendario/Paginas/Calendario.aspx
+
+https://www.pucminas.br/calendario/Documents/calendario%20academico_2024.pdf
+
+ICEI
+
+https://www.icei.pucminas.br
+
+Servidor para desenvolvimento
+
+https://dev.icei.pucminas.br/hub/login?next=%2Fhub%2F
+
+___
+
+Canvas
+
+https://pucminas.instructure.com/courses/179725/assignments
+
+Teams
+
+https://teams.microsoft.com/l/team/19%3AQvqA_Oha-P1Fa3U21Nick1TsmJZVRUA92WmgiMoqBMs1%40thread.tacv2/conversations?groupId=c3da8561-be47-48d4-9777-875cbece78e5&tenantId=14cbd5a7-ec94-46ba-b314-cc0fc972a161
+
+
+444101
+
+Canvas
+
+https://pucminas.instructure.com/courses/179892/assignments
+
+Teams
+
+https://teams.microsoft.com/l/team/19%3A4Pvq8zG7XcYChnBMMxl4xCyKCLq0b-o4Y7l21EhISl41%40thread.tacv2/conversations?groupId=c52d14f4-b8a8-44cb-be69-18d0b0f93172&tenantId=14cbd5a7-ec94-46ba-b314-cc0fc972a161
+
+
+Links recomendados
+
+http://sourceforge.net/projects/iverilog/
+    Icarus Verilog Interactive compiler & simulator     
+    Versão recomendada: 12 (modificada) com GTKWave
+                        no pacote de programas distribuído
+                        no Canvas em Arquivos: 2024-1_arq1.zip
+                        e também no Teams.
+    Obs.:
+          Existe uma versão mais nova do compilador,
+          entretanto, por ainda ser a de desenvolvimento e
+          poder apresentar problemas de execução,
+          em alguns casos, seu uso NÃO é recomendado.
+
+https://logisim.altervista.org/
+    Editor e simulador de circuitos lógicos
+    Versão recomendada: 2.16.y.z (06/04/2022) ou superior 
+                        no pacote de programas distribuído
+                        no Canvas em Arquivos: 2024-1_arq1.zip 
+                        e também no Teams.
+    Obs.:
+          Existem outras versões da ferramenta,
+          entretanto, apresentam incompatibilidades
+          e seus usos NÃO são recomendados.
+
+http://www.cs.duke.edu/csed/jflap/jflaptmp/
+    Pacote para Máquinas de Estados Finitos
+    Versão recomendada: JFLAP v7.1 (JFLAP_Thin.jar) (27/07/2018)    
+                        no pacote de programas distribuído
+                        no Canvas em Arquivos: 2024-1_arq1.zip 
+                        e também no Teams.
+     
+    IMPORTANTE:
+    A versão JFLAP8_beta.jar, mais nova,
+    apresenta erros e NÃO é recomendada.
+
+     
+http://www.cs.colby.edu/djskrien/CPUSim/
+    Simulador de conjunto de instruções
+    Versão recomendada: CPUSim v3.9.0
+                        no pacote de programas distribuído
+                        no Canvas em Arquivos: 2024-1_arq1.zip 
+                        e também no Teams.
+
+    IMPORTANTE:
+    As versões mais recentes (4.xx.yy), apresentam erros 
+    quando usadas com a versão mais recente do Java, 
+    e NÃO são recomendadas para uso.
+
+
+Links para utilidades:
+
+http://www.sutherland-hdl.com/online_verilog_ref_guide/vlog_ref_top.html
+    Verilog reference card
+    Manual online para Verilog
+    (melhor copiar e instalar na pasta IVI\docs ou IVerilog\docs)
+
+
+
+Qualquer dúvida sobre o uso dos programas acima
+deverá ser encaminhada ao professor, aos monitores
+ou pessoal técnico do Instituto de Informática.
+ 
