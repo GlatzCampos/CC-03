@@ -4,6 +4,42 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class App2 {
+    static private String path;
+    public ArrayList<Personagem> listaPersonagens;
+
+    public static boolean isFim(String input){
+        return input.equals("FIM");
+    }
+
+    App2(){this(1);}
+
+    App2(int l){
+        listaPersonagens = new ArrayList<Personagem>();
+        if(l == 0) path = "/media/gabrielglatz/SSD/Documents/CC-03/Algoritimo e Estrutura de Dados II/TP/TP2/characters.csv";
+        else path = "/tmp/characters.csv";
+    }
+
+    public static String getPersonagemInfo(String id){
+        String str = "";
+
+        FileReader file;
+        BufferedReader br;
+
+        try{
+            file = new FileReader(path);
+            br = new BufferedReader(file);
+
+            str = ReaderID(id, br);
+
+            br.close();
+            file.close();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return str;
+
+    }
 
     public static String getCSV(String Id) {
         String str = "";
@@ -12,6 +48,7 @@ public class App2 {
             BufferedReader br = new BufferedReader(file);
             str = ReaderID(Id, br);
             br.close();
+            file.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -20,14 +57,43 @@ public class App2 {
 
     public static String ReaderID(String id, BufferedReader br) {
         String csvLine = "";
+        Boolean foundId = false;
+
+        try{
+            while((foundId == false) && (csvLine = br.readLine()) != null) {
+                String atualId = csvLine.substring(0, csvLine.indexOf(";"));
+
+                if(id.equals(atualId))
+                    foundId = true;
+            }
+        }catch(Exception e){MyIO.println(e.getMessage());}
         return csvLine;
     }
 
+    public void addPersonagem(String id){
+        String str = getPersonagemInfo(id);
+        Personagem personagem = new Personagem(id);
+        listaPersonagens.add(personagem);
+    }
+
+    public void printListaPersonagem(){
+        for(int i = 0; i < listaPersonagens.size(); i++){
+            listaPersonagens.get(i).printPersonagem();
+        }
+    }
+
+
+
     public static void main(String[] args) {
+        App2 app = new App2(0);
+
         String id = MyIO.readLine();
+        while(!isFim(id)){
+            app.addPersonagem(id);
+            id = MyIO.readLine();
+        }
         getCSV(id);
         
-
     } 
 }
 
@@ -90,6 +156,13 @@ class Personagem {
     public String getGender() {return this.gender;}
     public String getHairColor() {return this.hairColor;}
     public Boolean getWizard() {return this.wizard;}
+
+    public void printPersonagem(){
+        MyIO.print("[");
+        MyIO.print(getId() + " ## ");
+        MyIO.print(getName() + " ## ");
+        MyIO.print("{" );
+    }
 
     public void setId(String Id) {this.id = Id;}
     public void setName(String Name) {this.name = Name;}
