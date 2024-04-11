@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class App2 {
     static private String path;
@@ -80,9 +81,7 @@ public class App2 {
         for(int i = 0; i < listaPersonagens.size(); i++){
             listaPersonagens.get(i).printPersonagem();
         }
-    }
-
-
+    } 
 
     public static void main(String[] args) {
         App2 app = new App2(0);
@@ -138,6 +137,10 @@ class Personagem {
         this.wizard = null;
     }
 
+    Personagem(String str){
+        setPersonagem(str);
+    }
+
     public String getId() {return this.id;}
     public String getName() {return this.name;}
     public ArrayList<String> getAltName() {return this.alternate_names;}
@@ -157,13 +160,7 @@ class Personagem {
     public String getHairColor() {return this.hairColor;}
     public Boolean getWizard() {return this.wizard;}
 
-    public void printPersonagem(){
-        MyIO.print("[");
-        MyIO.print(getId() + " ## ");
-        MyIO.print(getName() + " ## ");
-        MyIO.print("{" );
-    }
-
+    
     public void setId(String Id) {this.id = Id;}
     public void setName(String Name) {this.name = Name;}
     public void setAltName(ArrayList<String> AltName) {this.alternate_names = AltName;}
@@ -182,4 +179,119 @@ class Personagem {
     public void setGender(String Gender) {this.gender = Gender;}
     public void setHairColor(String HairColor) {this.hairColor = HairColor;}
     public void setWizard(Boolean Wizard) {this.wizard = Wizard;}
+
+    public void setAltName(String AltName){setAltName(StringArrayList(AltName));}
+    public void setHogwartsStaff(String HogwartsStaff){setHogwartsStaff(StringBoolean(HogwartsStaff));}
+    public void setHogwartsStudent(String HosetHogwartsStudent){setHogwartsStudent(StringBoolean(HosetHogwartsStudent));}
+    public void setAlive(String Alive){setAlive(StringBoolean(Alive));}
+    public void setAltActors(String AltAsetAltActors){setAltActors(StringArrayList(AltAsetAltActors));}
+    public void setDateOfBirth(String DateOfBirth){setDateOfBirth(LocalDate.parse(formatDate(DateOfBirth)));}
+    public void setYearOfBirth(String YearOfBirth){setYearOfBirth(Integer.parseInt(YearOfBirth));}
+    public void setWizard(String Wizard){setWizard(StringBoolean(Wizard));}
+
+
+    static public Boolean StringBoolean(String str){
+        return (str.equals("VERDADEIRO")) ? true : false;
+    }
+
+    static public ArrayList<String> StringArrayList(String str){
+        str = str.replace("[", "");
+        str = str.replace("]", "");
+
+        ArrayList<String> lista = new ArrayList<String>(Arrays.asList(str.split(";")));
+
+        return lista;
+    }
+
+    static public String formatDate(String str){
+        String[] split = str.split(".");
+        if(split[1].length() == 1) 
+            split[1] = "0" + split[1];
+
+        str = split[2] + "-" + split[1] + "-" + split[0];
+        return str;
+    }
+
+    public String ArrayListString(ArrayList<String> array){
+        String str = "";
+
+        for(int i = 0; i < array.size(); i++){
+            str += array.get(i) + ",";
+        }
+
+        str = str.substring(0, str.length()-1);
+        if(str.equals(" "))
+            str = " ";
+
+        return str;
+    }
+
+    private String[] splitDados(String strDados){
+        String[] arrayDados = new String[18];
+        String[] alternateDados = new String[2];
+
+        strDados = strDados.replace("'", "");
+        StringBuilder sbDel = new StringBuilder(strDados);
+
+        int tam = 2;
+        do{
+            int indexInicio = strDados.indexOf("[");
+            int indexFinal = strDados.indexOf("]");
+            if(indexInicio+1 != indexFinal){
+                alternateDados[alternateDados.length - tam] = strDados.substring(indexInicio, indexFinal+1);
+            }else{
+                alternateDados[alternateDados.length - tam] = "";
+            }
+
+            strDados = sbDel.delete(indexInicio, indexFinal+2).toString();
+
+            tam--;
+        }while(tam > 0);
+
+        strDados += "; ; ";
+        arrayDados = strDados.split(";");
+        arrayDados[16] = alternateDados[0];
+        arrayDados[17] = alternateDados[1];
+
+        return arrayDados;
+    }
+
+    private void setPersonagem(String dado){
+        String[] arrayDados = new String[18];
+        arrayDados = splitDados(dado);
+
+        setId(arrayDados[0]);
+        setName(arrayDados[1]);
+        setHouse(arrayDados[2]);
+        setAncestry(arrayDados[3]);
+        setSpecies(arrayDados[4]);
+        setPatronus(arrayDados[5]);
+        setHogwartsStaff(arrayDados[6]);
+        setHogwartsStudent(arrayDados[7]);
+        setActorName(arrayDados[8]);
+        setAlive(arrayDados[9]);
+        setDateOfBirth(arrayDados[10]);
+        setYearOfBirth(arrayDados[11]);
+        setEyeColor(arrayDados[12]);
+        setGender(arrayDados[13]);
+        setHairColor(arrayDados[14]);
+        setWizard(arrayDados[15]);
+        setAltName(arrayDados[16]);
+        setAltActors(arrayDados[17]);
+    }
+
+    public void printPersonagem(){
+        MyIO.print("[");
+        MyIO.print(getId() + " ## ");
+        MyIO.print(getName() + " ## ");
+
+        MyIO.print("{" + ArrayListString(alternate_names) + "}" + " ## ");
+
+        MyIO.print(getHouse() + " ## ");
+        MyIO.print(getAncestry() + " ## ");
+        MyIO.print(getSpecies() + " ## ");
+        MyIO.print(getPatronus() + " ## ");
+
+
+    }
 }
