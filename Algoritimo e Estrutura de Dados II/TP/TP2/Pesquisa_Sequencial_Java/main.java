@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class App2 {
+public class main{
     static private String path;
     public ArrayList<Personagem> listaPersonagens;
 
@@ -13,12 +13,13 @@ public class App2 {
         return input.equals("FIM");
     }
 
-    App2(){this(0);}
+    main(){this(0);}
 
-    App2(int l){
+    main(int l){
         listaPersonagens = new ArrayList<Personagem>();
         if(l == 0){
-            path = "/tmp/characters.csv";///media/gabrielglatz/SSD/Documents/CC-03/Algoritimo e Estrutura de Dados II/TP/TP2/characters.csv
+            path = "/tmp/characters.csv";
+            //path = "/media/gabrielglatz/SSD/Documents/CC-03/Algoritimo e Estrutura de Dados II/TP/TP2/characters.csv";
         }
     }
 
@@ -53,6 +54,19 @@ public class App2 {
         return csvLine;
     }
 
+    public static String ReaderName(String id, BufferedReader br, String name){
+        String csvLine = "";
+        Boolean foundIdName = false;
+
+        try{
+            while((foundIdName == false) && (csvLine = br.readLine()) != null){
+                String atualName = csvLine.substring(1,csvLine.indexOf(";"));
+                if(name.equals(atualName)) foundIdName = true;
+            }
+        }catch(Exception e){MyIO.println(e.getMessage());}
+        return csvLine;
+    }
+
     public void addPersonagem(String id){
         String str = getPersonagemInfo(id);
         Personagem personagem = new Personagem(str);
@@ -64,18 +78,28 @@ public class App2 {
             listaPersonagens.get(i).printPersonagem();
         }
     } 
+    public void printListaNomes(){
+        for(int i = 0; i < listaPersonagens.size(); i++){
+            listaPersonagens.get(i).printPersonagem();
+        }
+    } 
 
     public static void main(String[] args) {
-        App2 app = new App2(0);
+        main main = new main(0);
         Scanner sc = new Scanner(System.in);
 
         String id = sc.nextLine();
         while(!isFim(id)){
-            app.addPersonagem(id);
+            main.addPersonagem(id);
             id = sc.nextLine();
         }
+        String name = sc.nextLine();
+        while(!isFim(id)){
+            if(name == ReaderName(id, null, name)){}
+            name = sc.nextLine();
+        }
         sc.close();
-        app.printListaPersonagem();
+        main.printListaPersonagem();
     } 
 }
 
